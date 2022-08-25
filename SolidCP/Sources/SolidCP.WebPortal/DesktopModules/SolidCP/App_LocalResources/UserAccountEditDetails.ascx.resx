@@ -147,6 +147,9 @@
   <data name="lblMailFormat.Text" xml:space="preserve">
     <value>Mail Format:</value>
   </data>
+  <data name="lblMfa.Text" xml:space="preserve">
+    <value>Enable MFA:</value>
+  </data>
   <data name="lblPassword.Text" xml:space="preserve">
     <value>Password:</value>
   </data>
