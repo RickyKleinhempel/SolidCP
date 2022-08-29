@@ -6830,18 +6830,21 @@
     <value>Creating Virtual Machine object attempt - {0}</value>
   </data>
   <data name="Error.PinSendError" xml:space="preserve">
-    <value>Error sending pin</value>
+    <value>Error sending pin code</value>
   </data>
   <data name="Error.QRCodeActivation" xml:space="preserve">
-    <value>Activation unsuccessful. Wrong pin.</value>
+    <value>Activation unsuccessful. Wrong pin code.</value>
   </data>
   <data name="Error.WrongPin" xml:space="preserve">
     <value>Wrong Pin</value>
   </data>
   <data name="Success.PinSend" xml:space="preserve">
-    <value>Pin sent successfully</value>
+    <value>Pin code sent successfully</value>
   </data>
   <data name="Success.QRCodeActivation" xml:space="preserve">
     <value>Activation successful</value>
+  </data>
+  <data name="SuccessDescription.PinSend" xml:space="preserve">
+    <value>Pin code was successfully sent to the primary email address.</value>
   </data>
 </root>

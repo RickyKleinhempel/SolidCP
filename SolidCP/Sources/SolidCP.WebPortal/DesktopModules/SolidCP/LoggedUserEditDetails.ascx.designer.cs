@@ -231,6 +231,15 @@ namespace SolidCP.Portal
         protected global::System.Web.UI.WebControls.CheckBox cbxMfaEnabled;
 
         /// <summary>
+        /// lblMfaEnabled control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMfaEnabled;
+
+        /// <summary>
         /// btnGetQRCodeData control.
         /// </summary>
         /// <remarks>
@@ -246,7 +255,7 @@ namespace SolidCP.Portal
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow qrData;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl qrData;
 
         /// <summary>
         /// imgQrCode control.

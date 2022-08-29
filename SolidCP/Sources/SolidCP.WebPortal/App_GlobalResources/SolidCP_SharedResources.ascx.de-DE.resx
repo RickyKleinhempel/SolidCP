@@ -6763,12 +6763,15 @@
     <value>Aktivierung nicht erfolgreich</value>
   </data>
   <data name="Error.WrongPin" xml:space="preserve">
-    <value>Falscher Pin</value>
+    <value>Falscher PIN</value>
   </data>
   <data name="Success.PinSend" xml:space="preserve">
-    <value>Pin erfolgreich gesendet</value>
+    <value>PIN erfolgreich gesendet</value>
   </data>
   <data name="Success.QRCodeActivation" xml:space="preserve">
     <value>Aktivierung erfolgreich</value>
+  </data>
+  <data name="SuccessDescription.PinSend" xml:space="preserve">
+    <value>PIN wurde erfolgreich zur primären E-Mail-Adresse gesendet.</value>
   </data>
 </root>

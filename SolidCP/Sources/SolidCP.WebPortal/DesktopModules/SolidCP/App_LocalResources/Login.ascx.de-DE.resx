@@ -151,6 +151,6 @@
     <value>um Ihr Passwort zurückzusetzen</value>
   </data>
   <data name="btResendPin.Text" xml:space="preserve">
-    <value>Pin erneut senden</value>
+    <value>PIN erneut senden</value>
   </data>
 </root>

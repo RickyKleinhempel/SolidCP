@@ -151,6 +151,6 @@
     <value>to reset your password</value>
   </data>
   <data name="btResendPin.Text" xml:space="preserve">
-    <value>Resend Pin</value>
+    <value>Resend Pin Code</value>
   </data>
 </root>
