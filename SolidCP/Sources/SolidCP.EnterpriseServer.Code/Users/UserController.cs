@@ -205,7 +205,8 @@ namespace SolidCP.EnterpriseServer
 			var pinSecret = activate ? CryptoUtils.Encrypt(GetRandomString(20)) : null;
 			DataProvider.UpdateUserPinSecret(SecurityContext.User.UserId, user.UserId, pinSecret);
 			DataProvider.UpdateUserMfaMode(SecurityContext.User.UserId, user.UserId, pinSecret != null ? 1 : 0);
-			return true;
+			UserInfoInternal userAfterUpdate = GetUserInternally(username);
+			return userAfterUpdate.MfaMode > 0;
 		}
 
 		public static string[] GetUserMfaQrCodeData(string username)
@@ -215,8 +216,11 @@ namespace SolidCP.EnterpriseServer
 			if (user.MfaMode == 0)
 				return new string[0];
 
+			var authSettings = SystemController.GetSystemSettings(SystemSettings.AUTHENTICATION_SETTINGS);
+			var mfaTokenAppDisplayName = authSettings[SystemSettings.MFA_TOKEN_APP_DISPLAY_NAME];
+
 			TwoFactorAuthenticator twoFactorAuthenticator = new TwoFactorAuthenticator();
-			var faSetupCode = twoFactorAuthenticator.GenerateSetupCode("SolidCP", $"{user.Username}_SolidCP", CryptoUtils.Decrypt(user.PinSecret), false);
+			var faSetupCode = twoFactorAuthenticator.GenerateSetupCode(mfaTokenAppDisplayName, $"{user.Username}", CryptoUtils.Decrypt(user.PinSecret), false);
 			return new string[] { faSetupCode.ManualEntryKey, faSetupCode.QrCodeSetupImageUrl };
 		}
 
@@ -390,8 +394,15 @@ namespace SolidCP.EnterpriseServer
 				if (user == null)
 				{
 					TaskManager.WriteWarning("Account not found");
-					return 0;
+					return 1;
 				}
+
+				if(user.MfaMode == 2)
+                {
+					TaskManager.WriteWarning("Mode is 2 Email will not be sent");
+					return 2;
+				}
+				
 
 				UserSettings settings = UserController.GetUserSettings(user.UserId, UserSettings.VERIFICATION_CODE_LETTER);
 				string from = settings["From"];

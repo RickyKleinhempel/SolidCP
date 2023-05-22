@@ -19689,3 +19689,10 @@ BEGIN
 UPDATE [dbo].[Providers] SET [DisableAutoDiscovery] = NULL, GroupID = 75 WHERE [DisplayName] = 'Microsoft SQL Server 2022'
 END
 GO
+
+-- Authenticaion Settings
+IF NOT EXISTS (SELECT * FROM [dbo].[SystemSettings] WHERE [SettingsName] = 'AuthenticationSettings')
+BEGIN
+INSERT [dbo].[SystemSettings] ([SettingsName], [PropertyName], [PropertyValue]) VALUES (N'AuthenticationSettings', N'MfaTokenAppDisplayName', N'SolidCP')
+END
+GO
