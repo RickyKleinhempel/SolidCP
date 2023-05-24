@@ -216,8 +216,8 @@ namespace SolidCP.EnterpriseServer
 			if (user.MfaMode == 0)
 				return new string[0];
 
-			var authSettings = SystemController.GetSystemSettings(SystemSettings.AUTHENTICATION_SETTINGS);
-			var mfaTokenAppDisplayName = authSettings[SystemSettings.MFA_TOKEN_APP_DISPLAY_NAME];
+			var authSettings = SystemController.GetSystemSettingsInternal(SystemSettings.AUTHENTICATION_SETTINGS, false);
+			var mfaTokenAppDisplayName = authSettings == null ? "SolidCP" : authSettings[SystemSettings.MFA_TOKEN_APP_DISPLAY_NAME];
 
 			TwoFactorAuthenticator twoFactorAuthenticator = new TwoFactorAuthenticator();
 			var faSetupCode = twoFactorAuthenticator.GenerateSetupCode(mfaTokenAppDisplayName, $"{user.Username}", CryptoUtils.Decrypt(user.PinSecret), false);
