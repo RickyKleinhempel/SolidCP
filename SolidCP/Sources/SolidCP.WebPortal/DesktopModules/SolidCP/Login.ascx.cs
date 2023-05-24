@@ -232,6 +232,7 @@ namespace SolidCP.Portal
                 userPwdDiv.Visible = false;
                 tokenDiv.Visible = true;
                 tokenDiv.Attributes["value"] = encryptedTicket;
+                txtPin.Focus();
                 return;
             }
 
