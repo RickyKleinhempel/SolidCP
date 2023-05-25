@@ -19788,7 +19788,7 @@ RETURN 0
 END
 GO
 
-IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE type IN ('FN', 'IF', 'TF') AND name = 'CanChangeMfa') 
+IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE type = 'P' AND name = 'CanChangeMfa')
 DROP PROCEDURE [dbo].[CanChangeMfa]
 GO
 
