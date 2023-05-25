@@ -19699,11 +19699,11 @@ END
 GO
 
 -- CanChangeMfa Function --
-IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE type IN ('FN', 'IF', 'TF') AND name = 'CanChangeMfa') 
-DROP FUNCTION [dbo].[CanChangeMfa]
+IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE type IN ('FN', 'IF', 'TF') AND name = 'CanChangeMfaFunc') 
+DROP FUNCTION [dbo].[CanChangeMfaFunc]
 GO
 
-CREATE FUNCTION [dbo].[CanChangeMfa]
+CREATE FUNCTION [dbo].[CanChangeMfaFunc]
 (
 	@CallerID int,
 	@ChangeUserID int,
