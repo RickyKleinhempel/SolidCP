@@ -121,6 +121,7 @@ namespace SolidCP.Portal
                 lblUsername.Text = user.Username;
                 ddlMailFormat.SelectedIndex = user.HtmlMail ? 1 : 0;
                 cbxMfaEnabled.Checked = user.MfaMode > 0 ? true : false;
+                cbxMfaEnabled.Enabled = ES.Services.Users.CanUserChangeMfa(PanelSecurity.LoggedUserId);
                 btnGetQRCodeData.Visible = cbxMfaEnabled.Checked;
                 lblMfaEnabled.Visible = cbxMfaEnabled.Checked;
 

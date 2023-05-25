@@ -202,6 +202,7 @@ namespace SolidCP.Portal
             if (settings != null)
             {
                 txtMfaTokenAppDisplayName.Text = settings.GetValueOrDefault(SCP.SystemSettings.MFA_TOKEN_APP_DISPLAY_NAME, string.Empty);
+                chkCanPeerChangeMFa.Checked = settings.GetValueOrDefault(SCP.SystemSettings.MFA_CAN_PEER_CHANGE_MFA, true);
             }
         }
         private void SaveSMTP()
@@ -467,6 +468,8 @@ namespace SolidCP.Portal
                 // authentication settings
                 settings = new SCP.SystemSettings();
                 settings[SCP.SystemSettings.MFA_TOKEN_APP_DISPLAY_NAME] = txtMfaTokenAppDisplayName.Text.Trim();
+                settings[SCP.SystemSettings.MFA_CAN_PEER_CHANGE_MFA] = chkCanPeerChangeMFa.Checked ? "True" : "False";
+
 
                 int result = ES.Services.System.SetSystemSettings(SCP.SystemSettings.AUTHENTICATION_SETTINGS, settings);
 

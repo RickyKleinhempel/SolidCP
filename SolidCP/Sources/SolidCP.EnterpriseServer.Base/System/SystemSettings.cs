@@ -72,6 +72,7 @@ namespace SolidCP.EnterpriseServer
 
 		//Mfa token app display name
 		public const string MFA_TOKEN_APP_DISPLAY_NAME = "MfaTokenAppDisplayName";
+		public const string MFA_CAN_PEER_CHANGE_MFA = "CanPeerChangeMfa";
 
 		// Constant for IPAccess
 		public const string ACCESS_IPs = "AccessIps";

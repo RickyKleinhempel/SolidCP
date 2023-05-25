@@ -201,8 +201,12 @@
     <value>IP Addresses:</value>
     <comment>Label Text</comment>
   </data>
-  <data name="MfaTokenAppDisplayName.Text" xml:space="preserve">
+  <data name="SettingtxtMfaTokenAppDisplayName.Text" xml:space="preserve">
     <value>Authenticator Display Name:</value>
+    <comment>Label Text</comment>
+  </data>
+  <data name="SettingchkCanPeerChangeMFa.Text" xml:space="preserve">
+    <value>Can Peer Change Mfa</value>
     <comment>Label Text</comment>
   </data>
   <data name="SettinglblOwaUrl.Text" xml:space="preserve">

@@ -92,6 +92,7 @@ namespace SolidCP.Portal
                     ddlMailFormat.SelectedIndex = user.HtmlMail ? 1 : 0;
                     lblUsername.Text = user.Username;
                     cbxMfaEnabled.Checked = user.MfaMode > 0 ? true: false;
+                    cbxMfaEnabled.Enabled = ES.Services.Users.CanUserChangeMfa(PanelSecurity.SelectedUserId);
                     lblMfaEnabled.Visible = cbxMfaEnabled.Checked;
 
                     // contact info

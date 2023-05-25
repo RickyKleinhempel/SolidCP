@@ -510,13 +510,13 @@ namespace SolidCP.Portal
         protected global::System.Web.UI.WebControls.Localize HeaderAuthenticationSettings;
 
         /// <summary>
-        /// MfaTokenAppDisplayName control.
+        /// SettingtxtMfaTokenAppDisplayName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Localize MfaTokenAppDisplayName;
+        protected global::System.Web.UI.WebControls.Localize SettingtxtMfaTokenAppDisplayName;
 
         /// <summary>
         /// txtMfaTokenAppDisplayName control.
@@ -526,6 +526,24 @@ namespace SolidCP.Portal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMfaTokenAppDisplayName;
+
+        /// <summary>
+        /// SettingchkCanPeerChangeMFa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Localize SettingchkCanPeerChangeMFa;
+
+        /// <summary>
+        /// chkCanPeerChangeMFa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkCanPeerChangeMFa;
 
         /// <summary>
         /// btnAuthenticationSettings control.

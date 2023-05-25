@@ -202,9 +202,21 @@ namespace SolidCP.EnterpriseServer
 		public static bool UpdateUserMfaSecret(string username, bool activate)
 		{
 			UserInfoInternal user = GetUserInternally(username);
+
+			var authSettings = SystemController.GetSystemSettingsInternal(SystemSettings.AUTHENTICATION_SETTINGS, false);
+			var canPeerChangeMfa = Convert.ToBoolean(authSettings[SystemSettings.MFA_CAN_PEER_CHANGE_MFA]);
+
+			var canChange = DataProvider.CanUserChangeMfa(SecurityContext.User.UserId, user.UserId, canPeerChangeMfa);
+
+			System.Diagnostics.Debug.WriteLine($"canPeerChangeMfa {canPeerChangeMfa} / canhange {canChange}");
+
+			if (!canChange)
+				return false;
+
 			var pinSecret = activate ? CryptoUtils.Encrypt(GetRandomString(20)) : null;
 			DataProvider.UpdateUserPinSecret(SecurityContext.User.UserId, user.UserId, pinSecret);
 			DataProvider.UpdateUserMfaMode(SecurityContext.User.UserId, user.UserId, pinSecret != null ? 1 : 0);
+
 			UserInfoInternal userAfterUpdate = GetUserInternally(username);
 			return userAfterUpdate.MfaMode > 0;
 		}
@@ -236,6 +248,15 @@ namespace SolidCP.EnterpriseServer
 
 			DataProvider.UpdateUserMfaMode(SecurityContext.User.UserId, user.UserId, 2);
 			return true;
+		}
+		
+		public static bool CanUserChangeMfa(int changeUserId)
+		{
+			var currentUserId = SecurityContext.User.UserId;
+			var authSettings = SystemController.GetSystemSettingsInternal(SystemSettings.AUTHENTICATION_SETTINGS, false);
+			var canPeerChangeMfa = Convert.ToBoolean(authSettings[SystemSettings.MFA_CAN_PEER_CHANGE_MFA]);
+
+			return DataProvider.CanUserChangeMfa(currentUserId, changeUserId, canPeerChangeMfa);
 		}
 
 		public static UserInfo GetUserByUsernamePassword(string username, string password, string ip)
@@ -286,7 +307,7 @@ namespace SolidCP.EnterpriseServer
             //}
         }
 
-		public static int ChangeUserPassword(string username, string oldPassword, string newPassword, string ip)
+        public static int ChangeUserPassword(string username, string oldPassword, string newPassword, string ip)
 		{
 			// place log record
 			TaskManager.StartTask("USER", "CHANGE_PASSWORD_BY_USERNAME_PASSWORD", username);

@@ -444,13 +444,25 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <CPCC:H5Label runat="server" for="txtMfaTokenAppDisplayName" class="col-sm-2 control-label">
-                                                <asp:Localize ID="MfaTokenAppDisplayName" runat="server" meta:resourcekey="MfaTokenAppDisplayName" />
+                                                <asp:Localize ID="SettingtxtMfaTokenAppDisplayName" runat="server" meta:resourcekey="SettingtxtMfaTokenAppDisplayName" />
                                     </CPCC:H5Label>
                                     <div class="col-sm-6">
                                         <asp:TextBox runat="server" Rows="10" ID="txtMfaTokenAppDisplayName" CssClass="form-control" />
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <CPCC:H5Label runat="server" for="chkCanPeerChangeMFa" class="col-sm-2 control-label">
+                                        <asp:Localize ID="SettingchkCanPeerChangeMFa" runat="server" meta:resourcekey="SettingchkCanPeerChangeMFa" />
+                                    </CPCC:H5Label>
+                                <div class="col-sm-6">
+                                    <asp:CheckBox ID="chkCanPeerChangeMFa" runat="server" CssClass="form-control" Text="Yes" meta:resourcekey="SettingchkCanPeerChangeMFa" />
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </fieldset>
                     <hr />
